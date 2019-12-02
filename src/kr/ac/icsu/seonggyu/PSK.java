@@ -31,7 +31,7 @@ public class PSK {
    * 도메인은 메일주소에서
    * @return domain
    */
-  public String getDomain() { return getEmail().split("@")[0]; }
+  public String getDomain() { return getEmail().substring(getEmail().indexOf("@") + 1); }
 
   public String introduceNameMajor(){
     return "개발자의 이름은 [" + getMajor() + " 학과 " + getName() + "] 입니다.";
