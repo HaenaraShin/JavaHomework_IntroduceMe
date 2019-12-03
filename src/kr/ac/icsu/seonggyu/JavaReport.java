@@ -16,7 +16,7 @@ public class JavaReport {
     private void launchMain(String[] args) {
         try {
             new UsecaseFactory(
-                    new PSK("박성규", "빅데이터", "12345", "psk@isic.ackr", "1989년 12월 30일"))
+                    new PSK("박성규", "빅데이터", "12345", "psk@isic.ackr", "1989년 3월 12일"))
                     .createUsecase(args)
                     .execute();
         } catch (InvaildProgramArgumentException e) {

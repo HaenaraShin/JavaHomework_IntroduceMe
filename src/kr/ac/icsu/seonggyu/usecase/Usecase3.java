@@ -2,10 +2,7 @@ package kr.ac.icsu.seonggyu.usecase;
 
 import kr.ac.icsu.seonggyu.introduce.Introducable;
 import kr.ac.icsu.seonggyu.introduce.IntroduceMethod;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import kr.ac.icsu.seonggyu.util.AgeCalculator;
 
 /**
  * USECASE3
@@ -33,23 +30,14 @@ public class Usecase3 extends Usecase{
      * 오늘 날짜
      * @return
      */
-    private String getDate() { return dateFormat.format(new Date()); }
-
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 M월 d일");
+    private String getDate() { return AgeCalculator.today(); }
 
     /**
      * 만나이 계산
-     * 연,월,일 개별로 계산해야하지만 편의상 시간으로 환산하여 계산했기 때문에 버그가 있음. 수정 필요
      * @param birth
      * @return
      */
-    private long getAge(String birth) {
-        try {
-            long age = new Date().getTime() - dateFormat.parse(birth).getTime();
-            return age / (1000) / 3600 / 24 / 365;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return 0;
+    private int getAge(String birth) {
+        return AgeCalculator.getAge(birth);
     }
 }
