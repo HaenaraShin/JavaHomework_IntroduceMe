@@ -1,27 +1,26 @@
 package kr.ac.icsu.seonggyu;
 
-public class JavaReport {
-    private PSK student = new PSK("박성규", "빅데이터", "12345", "psk@isic.ackr", "1989년 3월 1일");
+import kr.ac.icsu.seonggyu.usecase.InvaildProgramArgumentException;
+import kr.ac.icsu.seonggyu.usecase.UsecaseFactory;
 
+/**
+ * 2019.12.3 과제
+ * program arguments 에 맞게 USECASE를 생성하면
+ * 해당 USECASE에 맞게 소개방법을 설정하고 소개한다.
+ */
+public class JavaReport {
     public static void main(String[] args) {
         new JavaReport().launchMain(args);
     }
 
     private void launchMain(String[] args) {
-        if (args.length == 1) {
-            switch (args[0]) {
-                case "1":
-                    System.out.println(student.introduceNameMajor());
-                    break;
-                case "2":
-                    System.out.println(student.introduceEmail());
-                    break;
-                case "3":
-                    System.out.println(student.introduceAge());
-                default:
-                    break;
-            }
+        try {
+            new UsecaseFactory(
+                    new PSK("박성규", "빅데이터", "12345", "psk@isic.ackr", "1989년 12월 30일"))
+                    .createUsecase(args)
+                    .execute();
+        } catch (InvaildProgramArgumentException e) {
+            e.printStackTrace();
         }
-        return;
     }
 }
