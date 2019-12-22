@@ -9,6 +9,7 @@ import kr.ac.icsu.seonggyu.usecase.UsecaseFactory;
  * 해당 USECASE에 맞게 소개방법을 설정하고 소개한다.
  */
 public class JavaReport {
+    public static String[] data = new String[4];
     public static void main(String[] args) {
         new JavaReport().launchMain(args);
     }
@@ -16,7 +17,7 @@ public class JavaReport {
     private void launchMain(String[] args) {
         try {
             new UsecaseFactory(
-                    new PSK("박성규", "빅데이터", "12345", "psk@isic.ackr", "1989년 3월 12일"))
+                    new HGD("홍길동", "컴퓨터공학과", "12345", "hong@gil.dong", "1989년 3월 12일"))
                     .createUsecase(args)
                     .execute();
         } catch (InvaildProgramArgumentException e) {

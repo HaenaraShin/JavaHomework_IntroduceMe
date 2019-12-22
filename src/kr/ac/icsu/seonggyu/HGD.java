@@ -9,7 +9,7 @@ import java.util.HashMap;
  * 학생은 소개할 수 있는 정보만 가지고 있다.
  * 소개하는 방법은 IntroduceMethod 를 통해 받는다.
  */
-public class PSK implements Introducable {
+public class HGD implements Introducable {
   private static final String KEY_NAME = "name";  // 이름
   private static final String KEY_MAJOR = "major"; // 학과
   private static final String KEY_ID = "id";  // 학번
@@ -18,7 +18,7 @@ public class PSK implements Introducable {
   private IntroduceMethod method;
   private HashMap<String, String> dataMap = new HashMap<>();
 
-  public PSK(String name, String major, String id, String email, String birth) {
+  public HGD(String name, String major, String id, String email, String birth) {
     dataMap.put(KEY_NAME, name);
     dataMap.put(KEY_MAJOR, major);
     dataMap.put(KEY_ID, id);
